@@ -1,0 +1,142 @@
+/* -------------------------------------------------------------------------- */
+/*                                  home page                                 */
+/* -------------------------------------------------------------------------- */
+
+.homepage {
+  // ===== top =====
+  .top {
+    &_container {
+      width: 100%;
+      height: 100vh;
+      height: var(--app-height);
+      overflow: hidden;
+      position: relative;
+    }
+
+    &_swiper {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    &_heading {
+      width: 100%;
+      position: absolute;
+      top: 37px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      text-align: center;
+
+      h1 {
+        font-size: 2.7rem;
+        color: $white-cl;
+      }
+
+      @include maxW(1023px) {
+        top: 27px;
+      }
+    }
+
+    &_logo {
+      width: 100%;
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      text-align: center;
+
+      img {
+        width: 252.81px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      p {
+        margin-top: 30px;
+        font-size: 2.5rem;
+        line-height: 1.12;
+        color: $white-cl;
+      }
+
+      @include maxW(1023px) {
+        top: 85px;
+
+        img {
+          width: 219.76px;
+        }
+
+        p {
+          margin-top: 40px;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &_scrolldown {
+      position: absolute;
+      bottom: 9px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+
+      span {
+        display: block;
+        width: 2px;
+        height: 90px;
+
+        &:before {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 100%;
+          animation: scrolldown 2.2s infinite;
+          background-color: $white-cl;
+        }
+      }
+
+      @include maxW(1023px) {
+        bottom: 20px;
+
+        span {
+          height: 70px;
+        }
+      }
+    }
+  }
+
+  // ===== intro =====
+  .intro {
+    &_container {
+      padding: 96px 17px 0;
+      margin: 0 auto;
+      text-align: center;
+
+      @include maxW(1023px) {
+        padding-top: 48px;
+      }
+    }
+
+    &_content {
+      p {
+        font-size: 1.6rem;
+        line-height: 1.68;
+      }
+
+      @include maxW(1023px) {
+        p {
+          font-feature-settings: "palt";
+        }
+      }
+    }
+  }
+
+  // ===== look =====
+  .look {
+    &_container {
+      height: 100vh;
+    }
+  }
+}
