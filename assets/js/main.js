@@ -79,7 +79,7 @@ const initLoading = function () {
     setTimeout(() => {
       lenis.start();
       topSwiper.autoplay.start();
-    }, 1000);
+    }, 1500);
   }, 2400);
 };
 
