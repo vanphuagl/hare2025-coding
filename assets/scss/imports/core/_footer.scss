@@ -4,7 +4,7 @@
 .c-footer {
   &_container {
     text-align: center;
-    padding-top: 116px;
+    padding-top: 108px;
     padding-bottom: 50px;
 
     @include maxW(1023px) {
@@ -18,7 +18,7 @@
   }
 
   &_credit {
-    margin-top: 77px;
+    margin-top: 67px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@
     }
 
     p {
-      margin-top: 41px;
+      margin-top: 37px;
       font-size: 1.4rem;
       line-height: 1.86;
     }

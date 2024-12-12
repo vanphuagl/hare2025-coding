@@ -122,7 +122,7 @@
     &_content {
       p {
         font-size: 1.6rem;
-        line-height: 1.68;
+        line-height: 1.58;
       }
 
       @include maxW(1023px) {
@@ -243,8 +243,8 @@
     &_type {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 4px;
+      gap: 5px;
+      margin-top: 7px;
 
       span {
         font-size: 1.5rem;
@@ -265,10 +265,10 @@
     }
 
     &_desc {
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 1.3rem;
       font-weight: 500;
-      line-height: 1.48;
+      line-height: 1.58;
     }
 
     &_price {
@@ -477,7 +477,7 @@
   // ===== campaign ====
   .campaign {
     &_container {
-      margin-top: 144px;
+      margin-top: 150px;
 
       @include maxW(1023px) {
         margin-top: 93px;
@@ -486,7 +486,7 @@
     }
 
     &_inner {
-      margin-top: 76px;
+      margin-top: 75px;
 
       @include maxW(1023px) {
         margin-top: 60px;
@@ -526,7 +526,7 @@
     }
 
     &_swiper {
-      margin-top: 37px;
+      margin-top: 30px;
       width: 100%;
       height: 100%;
       overflow: hidden;
@@ -588,13 +588,13 @@
     }
 
     &_desc {
-      margin-top: 13px;
+      margin-top: 10px;
 
       p {
         font-size: 1.3rem;
         font-weight: 500;
-        line-height: 1.48;
-        font-feature-settings: "palt";
+        line-height: 1.55;
+        font-feature-settings: "palt" 1;
       }
     }
 
