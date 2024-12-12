@@ -2,4 +2,48 @@
 ------------------------------------------------------------*/
 
 .c-footer {
+  &_container {
+    text-align: center;
+    padding-top: 116px;
+    padding-bottom: 50px;
+
+    @include maxW(1023px) {
+      padding: 80px 17px 20px;
+    }
+  }
+
+  &_info {
+    font-size: 1.4rem;
+    line-height: 1.86;
+  }
+
+  &_credit {
+    margin-top: 77px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+      margin-top: 26px;
+      font-size: 2.2rem;
+      line-height: 1.55;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 6px;
+    }
+
+    p {
+      margin-top: 41px;
+      font-size: 1.4rem;
+      line-height: 1.86;
+    }
+
+    @include maxW(1023px) {
+      margin-top: 80px;
+
+      a {
+        margin-top: 23px;
+      }
+    }
+  }
 }

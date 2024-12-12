@@ -10,15 +10,6 @@ const init = () => {
   initLoading();
 };
 
-// ===== add event on multiple element =====
-const addEventOnElements = function (elements, eventType, callback) {
-  if (elements) {
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].addEventListener(eventType, callback);
-    }
-  }
-};
-
 // ===== lenis =====
 const lenis = new Lenis({
   lerp: 0.05,
@@ -68,7 +59,7 @@ const [loading, loadingLogo] = [
   document.querySelector("[data-loading-logo]"),
 ];
 const initLoading = function () {
-  // ##
+  // #
   lenis.stop();
   setTimeout(() => {
     loadingLogo.classList.add("--fadein");
@@ -76,12 +67,30 @@ const initLoading = function () {
   // ##
   setTimeout(function () {
     loading.classList.add("--done");
-    setTimeout(() => {
-      lenis.start();
-      topSwiper.autoplay.start();
-    }, 1500);
   }, 2400);
+  // ###
+  setTimeout(() => {
+    lenis.start();
+    topSwiper.autoplay.start();
+  }, 3900);
 };
+
+// ===== artist action =====
+const [artistContent, artistToggler, artistAction] = [
+  document.querySelector("[data-artist-content]"),
+  document.querySelector("[data-artist-toggler]"),
+  document.querySelector("[data-artist-action]"),
+];
+artistToggler.addEventListener("click", function () {
+  this.classList.toggle("--active");
+  if (artistContent.style.maxHeight) {
+    artistContent.style.maxHeight = null;
+    artistAction.innerText = "open";
+  } else {
+    artistContent.style.maxHeight = artistContent.scrollHeight + "px";
+    artistAction.innerText = "close";
+  }
+});
 
 // ===== scroll fade up content =====
 const elementsArray = document.querySelectorAll("[data-fadeup]");
@@ -97,6 +106,32 @@ const fadeInItems = () => {
   }
 };
 window.addEventListener("scroll", fadeInItems);
+
+// ===== swiper campaign =====
+const campaignSwiper = new Swiper("[data-campaign-swiper]", {
+  speed: 800,
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    clickable: true,
+    el: ".swiper-pagination",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      allowTouchMove: true,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 42,
+      allowTouchMove: false,
+    },
+  },
+});
 
 // ===== lazy loading =====
 const ll = new LazyLoad({
