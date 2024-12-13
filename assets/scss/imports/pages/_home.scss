@@ -18,6 +18,10 @@
       height: 100%;
       overflow: hidden;
       position: relative;
+
+      picture {
+        background-color: $main-text-cl;
+      }
     }
 
     &_heading {
@@ -101,7 +105,7 @@
         bottom: 20px;
 
         span {
-          height: min(9.7902vh, 70px);
+          height: min(9.7902vh, 50px);
         }
       }
     }
@@ -195,7 +199,7 @@
         position: relative;
         height: 100%;
         padding-bottom: calc(750 / 563 * 100%);
-        background-color: $black-cl;
+        background-color: $main-text-cl;
 
         img {
           position: absolute;
@@ -369,7 +373,7 @@
         position: relative;
         height: 100%;
         padding-bottom: calc(266 / 266 * 100%);
-        background-color: $black-cl;
+        background-color: $main-text-cl;
 
         img {
           position: absolute;
@@ -551,7 +555,7 @@
         position: relative;
         height: 100%;
         padding-bottom: calc(500 / 374 * 100%);
-        background-color: $black-cl;
+        background-color: $main-text-cl;
 
         img {
           position: absolute;

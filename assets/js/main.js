@@ -93,19 +93,28 @@ artistToggler.addEventListener("click", function () {
 });
 
 // ===== scroll fade up content =====
-const elementsArray = document.querySelectorAll("[data-fadeup]");
-const fadeInItems = () => {
-  let pageTop = window.scrollY;
-  let fadeInThreshold = pageTop + window.innerHeight * 0.75;
+const [fadeUpArray, fadeInArray] = [
+  document.querySelectorAll("[data-fadeup]"),
+  document.querySelectorAll("[data-fadein]"),
+];
 
-  for (let i = 0; i < elementsArray.length; i++) {
-    let elem = elementsArray[i];
-    if (elem.getBoundingClientRect().top < fadeInThreshold) {
-      elem.classList.add("--fadein");
+const addFadeOnElements = function (elements) {
+  if (elements) {
+    for (let i = 0; i < elements.length; i++) {
+      let elem = elements[i];
+      let distInView =
+        elem.getBoundingClientRect().top - window.innerHeight + 100;
+      if (distInView < 0) {
+        elem.classList.add("--visible");
+      }
     }
   }
 };
-window.addEventListener("scroll", fadeInItems);
+
+window.addEventListener("scroll", function () {
+  addFadeOnElements(fadeUpArray);
+  addFadeOnElements(fadeInArray);
+});
 
 // ===== swiper campaign =====
 const campaignSwiper = new Swiper("[data-campaign-swiper]", {

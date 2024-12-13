@@ -7,9 +7,18 @@
   transform: translateY(35px);
   transition: 1s;
 
-  &.--fadein {
+  &.--visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+[data-fadein] {
+  opacity: 0;
+  transition: 1s;
+
+  &.--visible {
+    opacity: 1;
   }
 }
 
