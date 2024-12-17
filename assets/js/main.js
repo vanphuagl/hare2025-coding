@@ -10,18 +10,6 @@ const init = () => {
   initLoading();
 };
 
-// ===== lenis =====
-const lenis = new Lenis({
-  lerp: 0.05,
-  smoothWheel: true,
-});
-lenis.on("scroll", (e) => { });
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
 // ===== appheight =====
 const appHeight = () => {
   const doc = document.documentElement;
@@ -58,7 +46,7 @@ const topSwiper = new Swiper("[data-top-swiper]", {
           setTimeout(() => {
             document.querySelector("[data-top-scrolldown]").classList.add("--show");
             swiper.autoplay.stop();
-            lenis.start();
+            document.body.classList.add("--auto");
           }, 500);
           break;
         default:
@@ -75,7 +63,6 @@ const [loading, loadingLogo] = [
 ];
 const initLoading = function () {
   // #
-  lenis.stop();
   setTimeout(() => {
     loadingLogo.classList.add("--fadein");
   }, 800);
@@ -86,7 +73,6 @@ const initLoading = function () {
   }, 2400);
   // ###
   setTimeout(() => {
-    // lenis.start();
     topSwiper.autoplay.start();
   }, 4000);
 };

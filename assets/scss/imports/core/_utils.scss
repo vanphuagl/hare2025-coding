@@ -115,12 +115,16 @@
 }
 
 [data-top-scrolldown] {
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
   span:before {
     transform: scale(0);
     transition: height 1s linear;
   }
 
   &.--show {
+    opacity: 1;
     span:before {
       transform: none;
       animation: scrolldown 2.2s infinite;
