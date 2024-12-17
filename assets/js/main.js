@@ -15,7 +15,7 @@ const lenis = new Lenis({
   lerp: 0.05,
   smoothWheel: true,
 });
-lenis.on("scroll", (e) => {});
+lenis.on("scroll", (e) => { });
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);
@@ -35,10 +35,10 @@ window.addEventListener("resize", appHeight);
 // ===== swiper top =====
 const topSwiper = new Swiper("[data-top-swiper]", {
   effect: "fade",
-  speed: 2000,
+  speed: 2500,
   allowTouchMove: false,
   autoplay: {
-    delay: 2000,
+    delay: 1000,
     disableOnInteraction: false,
   },
   on: {
@@ -46,8 +46,23 @@ const topSwiper = new Swiper("[data-top-swiper]", {
       swiper.autoplay.stop();
     },
     slideChange: function (swiper) {
-      if (swiper.activeIndex == swiper.slides.length - 1) {
-        swiper.autoplay.stop();
+      switch (swiper.activeIndex) {
+        case 0:
+          break;
+        case 1:
+          document.querySelectorAll("[data-top-text]").forEach(element => {
+            element.classList.add("--show")
+          });
+          break;
+        case 2:
+          setTimeout(() => {
+            document.querySelector("[data-top-scrolldown]").classList.add("--show");
+            swiper.autoplay.stop();
+            lenis.start();
+          }, 500);
+          break;
+        default:
+          break;
       }
     },
   },
@@ -67,12 +82,13 @@ const initLoading = function () {
   // ##
   setTimeout(function () {
     loading.classList.add("--done");
+    topSwiper.autoplay.start();
   }, 2400);
   // ###
   setTimeout(() => {
-    lenis.start();
+    // lenis.start();
     topSwiper.autoplay.start();
-  }, 3900);
+  }, 4000);
 };
 
 // ===== artist action =====
